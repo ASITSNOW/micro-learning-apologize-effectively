@@ -1,0 +1,98 @@
+:root {
+    /* Color tokens - ensure AA contrast */
+    --bg: #ffffff;
+    --text: #111;
+    --primary: #1a73e8;
+    --muted: #f2f4f7;
+    --focus: #222;
+    --maxw: 64rem;
+    --space: 1rem;
+    --radius: 0.75rem;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html:focus-within {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 system-ui, Segoe UI, Roboto, Arial, sans-serif
+}
+
+.site‑header {
+    padding: var(--space) calc(var(--space)*2);
+    border-bottom: 1px solid #e5e7eb
+}
+
+main {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: calc(var(--space)*2)
+}
+
+.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+    margin: .5rem 0
+}
+
+.toc a {
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    padding: .25rem .5rem;
+    border-radius: .5rem
+}
+
+.toc a:focus {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px
+}
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+    background: #fff;
+    padding: .5rem;
+    border: 2px solid #000
+}
+
+.progress {
+    height: .5rem;
+    background: var(--muted);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: .5rem
+}
+
+.progress__bar {
+    display: block;
+    height: 100%;
+    background: var(--primary)
+}
+
+summary {
+    cursor: pointer
+}
+
+button {
+    cursor: pointer
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px
+}

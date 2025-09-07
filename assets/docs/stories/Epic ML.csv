@@ -1,0 +1,85 @@
+Summary,Issue Type,Description,Epic Name,Epic Link
+Build an accessible HTML micro-learning module,Epic,"Goal: 508-compliant, mobile-first micro-lesson with one original graphic, ≤60s video, and a small JS enhancement.
+
+Definition of Ready: learning objective, topic, success metric, video plan, a11y list.
+Definition of Done: semantic HTML (head, title, meta, nav, main, section, footer); captions/transcript; alt text; keyboard usable; AA contrast; accessible JS; a11y checks; optimized assets.",ML Micro-Learning,
+US-1 Information Architecture & Skeleton,Story,"As a learner, I want a clear page structure.
+
+Acceptance Criteria:
+- Header/nav/main/section/footer landmarks
+- Skip-to-content via keyboard
+- Title/meta describe lesson
+
+Tasks:
+- Wireframe → HTML scaffold
+- Nav with aria-label",,ML-1
+US-2 Content Draft & Micro-Flow,Story,"As a learner, I want concise steps.
+
+Acceptance Criteria:
+- Objective ≤25 words
+- ≤5 steps, each ≤60 words
+- Plain-language (Grade 8–10)
+
+Tasks:
+- Draft copy & headings
+- Alt-text plan",,ML-1
+US-3 Self-Created Graphic,Story,"As a learner, I want a clarifying visual.
+
+Acceptance Criteria:
+- One original SVG/PNG
+- Meaningful alt/aria-label
+- AA contrast for in-graphic text
+
+Tasks:
+- Sketch → produce → export web-ready",,ML-1
+US-4 ≤60s Video with A11y,Story,"As a learner, I want a short, controllable video.
+
+Acceptance Criteria:
+- ≤60s; compressed
+- <video> with controls; no autoplay
+- Captions or transcript
+
+Tasks:
+- Script/storyboard
+- Record/edit/compress
+- Add captions/transcript",,ML-1
+US-5 JavaScript Enhancement,Story,"As a learner, I want a lightweight check/progress feature.
+
+Acceptance Criteria:
+- 3-question check or progress indicator
+- Keyboard accessible; aria-live feedback
+- Fallback when JS disabled
+
+Tasks:
+- Minimal JS + focus management
+- ARIA roles/states
+- Non-JS fallback",,ML-1
+US-6 508 Compliance Pass,Story,"As a stakeholder, I want 508 confidence.
+
+Acceptance Criteria:
+- AA contrast; valid landmarks/headings
+- No keyboard traps; visible focus
+
+Tasks:
+- Validator + axe/Lighthouse
+- Keyboard + screen reader checks",,ML-1
+US-7 Performance & Delivery,Story,"As a mobile learner, I want fast loads.
+
+Acceptance Criteria:
+- Page <150KB (excl. video)
+- Images optimized/lazy-loaded
+- Minified CSS/JS; deferred JS
+
+Tasks:
+- Compress assets
+- Defer JS",,ML-1
+US-8 Review, Polish, Publish,Story,"As a stakeholder, I want a finished module.
+
+Acceptance Criteria:
+- Peer review complete
+- README (run/host, licenses)
+- Deployed link available
+
+Tasks:
+- QA checklist → fixes
+- Deploy (GitHub Pages/Netlify)",,ML-1
