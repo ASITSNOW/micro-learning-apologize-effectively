@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="theme-midnight">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,10 +8,11 @@
   <link rel="preload" href="assets/css/styles.css" as="style">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header role="banner" class="site‑header">
+  <header role="banner" class="site-header">
     <h1 id="title">{{topic}}</h1>
     <nav aria-label="Section">
       <ul class="toc" role="list">
@@ -18,13 +20,15 @@
         <li><a href="#objectives">Objectives</a></li>
         <li><a href="#scenario">Scenario</a></li>
         <li><a href="#steps">Steps</a></li>
+        <li><a href="#scenario-revisit">Scenario Revisit</a></li>
         <li><a href="#practice">Practice</a></li>
         <li><a href="#summary">Summary</a></li>
         <li><a href="#resources">Resources</a></li>
         <li><a href="#feedback">Feedback</a></li>
       </ul>
     </nav>
-    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Module progress">
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+      aria-label="Module progress">
       <span class="progress__bar" style="width:0%"></span>
     </div>
   </header>
@@ -32,7 +36,10 @@
   <main id="main" role="main" tabindex="-1">
     <section id="overview" aria-labelledby="h-overview">
       <h2 id="h-overview">Overview</h2>
-      <p><!-- TODO: overview copy --></p>
+      <p>This micro‑lesson shows how to deliver a strong, respectful apology in five parts: take ownership, acknowledge
+        impact, apologize clearly, offer to repair, and make a future commitment. Use this method when you’ve caused
+        harm
+        and want to rebuild trust. Time to complete: ~5–7 minutes.</p>
     </section>
 
     <section id="objectives" aria-labelledby="h-objectives">
@@ -46,9 +53,23 @@
 
     <section id="scenario" aria-labelledby="h-scenario">
       <h2 id="h-scenario">Scenario</h2>
-      <p><!-- TODO: concise scenario --></p>
+      <figure>
+        <figcaption id="sc1-cap">David’s first attempt at an apology (ineffective).</figcaption>
+        <video controls preload="metadata" aria-describedby="sc1-cap" poster="assets/img/david-apology-bad-poster.jpg">
+          <source src="assets/media/david-apology-bad.mp4" type="video/mp4">
+          <track kind="captions" src="assets/media/david-apology-bad.vtt" srclang="en" label="English" default>
+          <!-- Fallback text -->
+          Sorry, your browser doesn’t support embedded video. Read the transcript below.
+        </video>
+      </figure>
+      <details class="transcript">
+        <summary>Show transcript</summary>
+        <p><!-- TODO: paste transcript of the ineffective apology here. --></p>
+      </details>
+      <p class="context">Watch David’s initial apology. It contains several mistakes you’ll learn to avoid in the steps
+        below.</p>
     </section>
-
+    
     <section id="steps" aria-labelledby="h-steps">
       <h2 id="h-steps">Steps</h2>
 
@@ -68,12 +89,13 @@
           <legend id="owning-help">Pick the opener that demonstrates ownership.</legend>
           <div class="mc">
             <label><input type="radio" name="own-q1" value="A"> “Sorry if there was confusion.”</label>
-            <label><input type="radio" name="own-q1" value="B"> “I missed the Tuesday handoff.”</label>
+            <label><input type="radio" name="own-q1" value="B"> “I gave unclear direction.”</label>
           </div>
         </fieldset>
         <details class="answer">
           <summary>Show answer</summary>
-          <p><strong>B</strong> is correct. It names your action plainly. <strong>A</strong> uses a conditional “if,” which shifts the burden away from your actions.</p>
+          <p><strong>B</strong> is correct. It names your action plainly. <strong>A</strong> uses a conditional “if,”
+            which shifts the burden away from your actions.</p>
         </details>
 
         <h4>Examples that don’t show ownership</h4>
@@ -127,13 +149,17 @@
         <fieldset aria-describedby="impact-hint">
           <legend>Impact choice</legend>
           <div class="mc">
-            <label><input id="impact-q1a" type="radio" name="impact-q1" value="A"> “I interrupted you while you were speaking.”</label>
-            <label><input id="impact-q1b" type="radio" name="impact-q1" value="B"> “My interruption stopped you from sharing your point of view.”</label>
+            <label><input id="impact-q1a" type="radio" name="impact-q1" value="A"> “I interrupted you while you were
+              speaking.”</label>
+            <label><input id="impact-q1b" type="radio" name="impact-q1" value="B"> “My interruption stopped you from
+              sharing your point of view.”</label>
           </div>
         </fieldset>
         <details class="answer">
           <summary>Show answer</summary>
-          <p><strong>B</strong> is correct. It names the impact: it stopped them from sharing their point of view. <strong>A</strong> shows ownership of the action but doesn’t acknowledge the effect.</p>
+          <p><strong>B</strong> is correct. It names the impact: it stopped them from sharing their point of view.
+            <strong>A</strong> shows ownership of the action but doesn’t acknowledge the effect.
+          </p>
         </details>
 
         <h4>Examples that don’t name the impact</h4>
@@ -142,13 +168,15 @@
           <li>
             <details>
               <summary>“I had a legitimate reason for doing so.”</summary>
-              <p><em>Why ineffective:</em> Ignores all consequences. Suggests the impact doesn’t matter; only the excuse matters.</p>
+              <p><em>Why ineffective:</em> Ignores all consequences. Suggests the impact doesn’t matter; only the excuse
+                matters.</p>
             </details>
           </li>
           <li>
             <details>
               <summary>“I’ll try to do better next time.”</summary>
-              <p><em>Why ineffective:</em> Promises action too quickly. If you don’t acknowledge the harm you caused, how can the other person trust you to honor your commitment?</p>
+              <p><em>Why ineffective:</em> Promises action too quickly. If you don’t acknowledge the harm you caused,
+                how can the other person trust you to honor your commitment?</p>
             </details>
           </li>
           <li>
@@ -167,7 +195,8 @@
         </figure>
 
         <aside role="note">
-          <p><strong>Note:</strong> Do you really understand the impact of your actions? If not, just ask! The other person is probably eager to tell you.</p>
+          <p><strong>Note:</strong> Do you really understand the impact of your actions? If not, just ask! The other
+            person is probably eager to tell you.</p>
         </aside>
       </details>
 
@@ -187,13 +216,18 @@
         <fieldset aria-describedby="remorse-hint">
           <legend>Remorse choice</legend>
           <div class="mc">
-            <label><input id="remorse-q1a" type="radio" name="remorse-q1" value="A"> “I didn’t do it on purpose.”</label>
-            <label><input id="remorse-q1b" type="radio" name="remorse-q1" value="B"> “I regret putting you in that situation.”</label>
+            <label><input id="remorse-q1a" type="radio" name="remorse-q1" value="A"> “I didn’t do it on
+              purpose.”</label>
+            <label><input id="remorse-q1b" type="radio" name="remorse-q1" value="B"> “I regret putting you in that
+              situation.”</label>
           </div>
         </fieldset>
         <details class="answer">
           <summary>Show answer</summary>
-          <p><strong>B</strong> is correct. It expresses regret. This builds the trust needed for a repair attempt. <strong>A</strong> prioritizes your intent. The lack of regret suggests you might unintentionally cause the same harm in the future.</p>
+          <p><strong>B</strong> is correct. It expresses regret. This builds the trust needed for a repair attempt.
+            <strong>A</strong> prioritizes your intent. The lack of regret suggests you might unintentionally cause the
+            same harm in the future.
+          </p>
         </details>
 
         <h4>Examples that don’t show remorse</h4>
@@ -208,7 +242,8 @@
           <li>
             <details>
               <summary>“It’s not like I did it on purpose.”</summary>
-              <p><em>Why ineffective:</em> Too defensive; borderline accusatory. This suggests the other person is wrong for being hurt.</p>
+              <p><em>Why ineffective:</em> Too defensive; borderline accusatory. This suggests the other person is wrong
+                for being hurt.</p>
             </details>
           </li>
           <li>
@@ -220,13 +255,15 @@
           <li>
             <details>
               <summary>“I regret that you felt offended by what I said.”</summary>
-              <p><em>Why ineffective:</em> Shows no remorse for your actions. Instead, shifts blame to their emotions. Implies their feelings are problematic.</p>
+              <p><em>Why ineffective:</em> Shows no remorse for your actions. Instead, shifts blame to their emotions.
+                Implies their feelings are problematic.</p>
             </details>
           </li>
           <li>
             <details>
               <summary>“I already apologized.”</summary>
-              <p><em>Why ineffective:</em> Seeks one-sided closure. No expression of remorse. No genuine attempt at repair.</p>
+              <p><em>Why ineffective:</em> Seeks one-sided closure. No expression of remorse. No genuine attempt at
+                repair.</p>
             </details>
           </li>
         </ul>
@@ -234,12 +271,15 @@
         <h4>Weak → Strong</h4>
         <figure>
           <figcaption>Rewrite to show remorse</figcaption>
-          <blockquote>Weak: “I’m sorry that traffic was worse than normal. There’s nothing I could have done.”</blockquote>
-          <blockquote>Strong: “I’m sorry I didn’t call you as soon as I knew I would be late. I left you feeling anxious about when I would arrive, and I regret that.”</blockquote>
+          <blockquote>Weak: “I’m sorry that traffic was worse than normal. There’s nothing I could have done.”
+          </blockquote>
+          <blockquote>Strong: “I’m sorry I didn’t call you as soon as I knew I would be late. I left you feeling anxious
+            about when I would arrive, and I regret that.”</blockquote>
         </figure>
 
         <aside role="note">
-          <p><strong>Note:</strong> Don’t fake it. Lies won’t build trust. Take time to reflect on the impact of your actions. What could you have done differently?</p>
+          <p><strong>Note:</strong> Don’t fake it. Lies won’t build trust. Take time to reflect on the impact of your
+            actions. What could you have done differently?</p>
         </aside>
       </details>
 
@@ -259,13 +299,16 @@
         <fieldset aria-describedby="repair-hint">
           <legend>Repair choice</legend>
           <div class="mc">
-            <label><input id="repair-q1a" type="radio" name="repair-q1" value="A"> “I’m sorry I interrupted you. I made you feel silenced. I regret that, and I won’t do it again.”</label>
-            <label><input id="repair-q1b" type="radio" name="repair-q1" value="B"> “I’m listening now. If you are willing to give me another chance, I’d like to hear what you have to say.”</label>
+            <label><input id="repair-q1a" type="radio" name="repair-q1" value="A"> “I’m sorry I interrupted you. I made
+              you feel silenced. I regret that, and I won’t do it again.”</label>
+            <label><input id="repair-q1b" type="radio" name="repair-q1" value="B"> “I’m listening now. If you are
+              willing to give me another chance, I’d like to hear what you have to say.”</label>
           </div>
         </fieldset>
         <details class="answer">
           <summary>Show answer</summary>
-          <p><strong>B</strong> is correct. It creates an opportunity to fix the problem. <strong>A</strong> shows remorse and future intent but leaves the harm unaddressed.</p>
+          <p><strong>B</strong> is correct. It creates an opportunity to fix the problem. <strong>A</strong> shows
+            remorse and future intent but leaves the harm unaddressed.</p>
         </details>
 
         <h4>Examples that don’t offer a repair</h4>
@@ -286,7 +329,8 @@
           <li>
             <details>
               <summary>“I’ll try to make it up to you.”</summary>
-              <p><em>Why ineffective:</em> Too vague. Without a specific “what” and “when,” there’s no actual attempt to mend the harm.</p>
+              <p><em>Why ineffective:</em> Too vague. Without a specific “what” and “when,” there’s no actual attempt to
+                mend the harm.</p>
             </details>
           </li>
         </ul>
@@ -295,11 +339,13 @@
         <figure>
           <figcaption>Rewrite to offer a clear repair</figcaption>
           <blockquote>Weak: “I’ll make it up to you.”</blockquote>
-          <blockquote>Strong: “Is there anything I can do to fix this? I’d be willing to schedule another meeting to give you an opportunity to share your ideas.”</blockquote>
+          <blockquote>Strong: “Is there anything I can do to fix this? I’d be willing to schedule another meeting to
+            give you an opportunity to share your ideas.”</blockquote>
         </figure>
 
         <aside role="note">
-          <p><strong>Note:</strong> Your repair attempt should match the impact. If you embarrassed someone publicly, you should apologize to them publicly.</p>
+          <p><strong>Note:</strong> Your repair attempt should match the impact. If you embarrassed someone publicly,
+            you should apologize to them publicly.</p>
         </aside>
       </details>
 
@@ -319,13 +365,17 @@
         <fieldset aria-describedby="commitment-hint">
           <legend>Commitment choice</legend>
           <div class="mc">
-            <label><input id="commit-q1a" type="radio" name="commit-q1" value="A"> “Sorry about the loud music. I’ll try to keep it down.”</label>
-            <label><input id="commit-q1b" type="radio" name="commit-q1" value="B"> “From now on, I’ll use my headphones after 9pm.”</label>
+            <label><input id="commit-q1a" type="radio" name="commit-q1" value="A"> “Sorry about the loud music. I’ll try
+              to keep it down.”</label>
+            <label><input id="commit-q1b" type="radio" name="commit-q1" value="B"> “From now on, I’ll use my headphones
+              after 9pm.”</label>
           </div>
         </fieldset>
         <details class="answer">
           <summary>Show answer</summary>
-          <p><strong>B</strong> is correct. It’s specific, and it’s observable. If you fail to honor this commitment, they’ll know. <strong>A</strong> is too vague. No one can tell whether you’re honoring a commitment to try.</p>
+          <p><strong>B</strong> is correct. It’s specific, and it’s observable. If you fail to honor this commitment,
+            they’ll know. <strong>A</strong> is too vague. No one can tell whether you’re honoring a commitment to try.
+          </p>
         </details>
 
         <h4>Examples that don’t make a real commitment</h4>
@@ -340,7 +390,8 @@
           <li>
             <details>
               <summary>“I’ll do better.”</summary>
-              <p><em>Why ineffective:</em> Too vague. Without defining what “better” means, it doesn’t offer any specific behavioral change.</p>
+              <p><em>Why ineffective:</em> Too vague. Without defining what “better” means, it doesn’t offer any
+                specific behavioral change.</p>
             </details>
           </li>
           <li>
@@ -360,13 +411,33 @@
         <h4>Weak → Strong</h4>
         <figure>
           <figcaption>Rewrite to a clear, observable commitment</figcaption>
-          <blockquote>Weak: “I’m sorry my dog bit you. I’ll try to do a better job keeping him away from people.”</blockquote>
-          <blockquote>Strong: “I’ll keep my dog leashed when we’re walking. If you’re visiting my home, I’ll make sure he stays in the backyard.”</blockquote>
+          <blockquote>Weak: “I’m sorry my dog bit you. I’ll try to do a better job keeping him away from people.”
+          </blockquote>
+          <blockquote>Strong: “I’ll keep my dog leashed when we’re walking. If you’re visiting my home, I’ll make sure
+            he stays in the backyard.”</blockquote>
         </figure>
 
         <aside role="note">
-          <p><strong>Note:</strong> Good commitments are <em>specific</em> and <em>observable</em>. It should be clear to everyone whether you are honoring your commitment.</p>
+          <p><strong>Note:</strong> Good commitments are <em>specific</em> and <em>observable</em>. It should be clear
+            to everyone whether you are honoring your commitment.</p>
         </aside>
+      </details>
+    </section>
+
+    <section id="scenario-revisit" aria-labelledby="h-scenario-revisit">
+      <h2 id="h-scenario-revisit">Scenario Revisit</h2>
+      <p class="context">After studying the five parts of an effective apology, watch how David applies them.</p>
+      <figure>
+        <figcaption id="sc2-cap">David’s revised apology (effective).</figcaption>
+        <video controls preload="metadata" aria-describedby="sc2-cap" poster="assets/img/david-apology-good-poster.jpg">
+          <source src="assets/media/david-apology-good.mp4" type="video/mp4">
+          <track kind="captions" src="assets/media/david-apology-good.vtt" srclang="en" label="English" default>
+          Sorry, your browser doesn’t support embedded video. Read the transcript below.
+        </video>
+      </figure>
+      <details class="transcript">
+        <summary>Show transcript</summary>
+        <p><!-- TODO: paste transcript of the improved apology here. --></p>
       </details>
     </section>
 
@@ -389,21 +460,26 @@
     <section id="summary" aria-labelledby="h-summary">
       <h2 id="h-summary">Summary</h2>
       <ul>
-        <li><!-- key takeaway --></li>
-        <li><!-- key takeaway --></li>
+        <li>State what <strong>you</strong> did—no excuses.</li>
+        <li>Name the <strong>impact</strong> on the other person.</li>
+        <li>Use a clear apology (“I’m sorry/I apologize”) tied to the action.</li>
+        <li>Offer a <strong>specific repair</strong> that fits the harm.</li>
+        <li>Make a <strong>concrete, observable</strong> future commitment.</li>
       </ul>
     </section>
 
     <section id="resources" aria-labelledby="h-resources">
       <h2 id="h-resources">Resources</h2>
       <ul>
-        <li><a href="#" rel="external noopener">Placeholder link</a></li>
+        <li><a href="#" rel="external noopener">One‑page Apology Checklist (PDF)</a></li>
+        <li><a href="#" rel="external noopener">Worksheet: Turn “Weak → Strong” Statements</a></li>
+        <li><a href="#" rel="external noopener">Further reading on effective apologies</a></li>
       </ul>
     </section>
 
     <section id="feedback" aria-labelledby="h-feedback">
       <h2 id="h-feedback">Feedback</h2>
-      <p><a href="#">Leave quick feedback</a></p>
+      <p>Was this helpful? <a href="#" rel="external noopener">Take a 30‑second survey</a></p>
     </section>
   </main>
 
@@ -413,4 +489,5 @@
 
   <script type="module" src="assets/js/app.js" defer></script>
 </body>
+
 </html>
