@@ -1,43 +1,43 @@
 /* =========================================
-   Micro‑Learning Base Styles (A11y AA)
-   File: assets/css/styles.css
-   No external fonts. Keep CSS small & fast.
+   Micro-Learning Base Styles (A11y AA)
+   File: assets/css/styles.css  •  Clean refactor
    ========================================= */
 
 /* ===== Design Tokens ===== */
 :root{
   /* Palette */
-  --bg: #ffffff;
-  --surface: #f7f9fc;           /* panels, chips */
-  --text: #111418;              /* body text */
-  --muted: #e6eaf2;             /* progress track, dividers */
-  --border: #d1d9e6;            /* soft borders */
-  --primary: #1a73e8;           /* links, actions */
-  --primary-ink: #0b3c91;       /* hover/active */
-  --focus: #1f2937;             /* high-contrast focus ring */
+  --bg:#fff;
+  --surface:#f7f9fc;
+  --text:#111418;
+  --muted:#e6eaf2;
+  --border:#d1d9e6;
+  --primary:#1a73e8;
+  --primary-ink:#0b3c91;
+  --focus:#1f2937;
 
-  /* Type scale */
+  /* Panels */
+  --panel: color-mix(in srgb, var(--surface) 92%, #ffffff 8%);
+
+  /* Type */
   --font: system-ui, Segoe UI, Roboto, Arial, sans-serif;
-  --size-0: 0.875rem;  /* small */
-  --size-1: 1rem;      /* base */
-  --size-2: 1.125rem;  /* lead */
-  --size-3: 1.5rem;    /* h3 */
-  --size-4: 1.875rem;  /* h2 */
-  --size-5: 2.25rem;   /* h1 */
+  --size-0:.875rem; --size-1:1rem; --size-2:1.125rem; --size-3:1.5rem; --size-4:1.875rem; --size-5:2.25rem;
 
-  /* Spacing + radii */
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --radius: 0.75rem;
-  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.06);
+  /* Spacing / radii / shadow */
+  --space-1:.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem;
+  --radius:.75rem;
+  --shadow:0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.06);
+
+  /* Layout */
+  --hdr:4.5rem; /* sticky header height for anchor offsets */
 }
 
 /* ===== Base & Resets ===== */
 *{box-sizing:border-box}
 html:focus-within{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){ html:focus-within{scroll-behavior:auto} *{transition:none !important; animation:none !important} }
+@media (prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--font)}
 main{max-width:64rem;margin:0 auto;padding:var(--space-3)}
 img,video{max-width:100%;height:auto}
@@ -46,8 +46,7 @@ h1{font-size:var(--size-5);line-height:1.2;margin:.5rem 0 var(--space-2)}
 h2{font-size:var(--size-4);line-height:1.25;margin:var(--space-3) 0 var(--space-1)}
 h3{font-size:var(--size-3);line-height:1.3;margin:var(--space-2) 0 var(--space-1)}
 h4{font-size:var(--size-2);line-height:1.35;margin:var(--space-1) 0 .25rem}
-
-p, ul, ol{max-width:75ch}
+p,ul,ol{max-width:75ch}
 .lead{font-size:var(--size-2)}
 
 /* Links */
@@ -61,38 +60,123 @@ a:hover{color:var(--primary-ink)}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:0;top:0;width:auto;height:auto;background:#fff;color:#000;padding:.5rem .75rem;border:2px solid #000;z-index:1000}
 
-/* Header + TOC chips */
-.site-header{padding:var(--space-2) var(--space-3);border-bottom:1px solid var(--muted);background:var(--surface)}
-.toc{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:var(--space-1) 0;padding:0}
-.toc a{display:inline-block;background:var(--surface);border:1px solid var(--border);padding:.375rem .6rem;border-radius:999px;text-decoration:none}
+/* ===== Layout ===== */
+.site-header{
+  position:sticky;top:0;z-index:10;
+  padding:var(--space-2) var(--space-3);
+  border-bottom:1px solid var(--muted);
+  background:var(--surface);
+}
+html{scroll-padding-top:calc(var(--hdr))}
+section{scroll-margin-top:calc(var(--hdr))}
+
+/* ===== TOC ===== */
+/* Mobile: collapsible; Desktop: single-line row with hidden scrollbar */
+.toc{display:flex;list-style:none;margin:var(--space-1) 0;padding:0}
+.toc a{
+  display:inline-block;
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:.12rem .30rem;          /* compact chip */
+  border-radius:999px;
+  text-decoration:none;
+  font-size:.80rem; line-height:1.1;
+}
 .toc a:hover{box-shadow:var(--shadow)}
 
-/* Progress bar */
+/* Collapser wrapper (HTML: <details class="toc-collapser"><summary>Contents</summary><nav class="toc">…</nav></details>) */
+.toc-collapser{display:block;margin:0;padding:0}
+.toc-collapser>summary{cursor:pointer;list-style:none;margin:0;padding:0}
+.toc-collapser>summary::-webkit-details-marker{display:none}
+.toc-collapser .toc{flex-wrap:wrap;gap:.2rem;margin:0;padding:0;overflow:visible}
+
+/* Desktop behavior (kept small, single line, no visible scrollbar) */
+@media (min-width:900px){
+  .toc-collapser>summary{display:none}
+  .toc-collapser .toc{
+    flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;gap:.2rem;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .toc-collapser .toc::-webkit-scrollbar{display:none}
+}
+
+/* ===== Progress ===== */
 .progress{height:.5rem;background:var(--muted);border-radius:999px;overflow:hidden;margin-top:.5rem}
 .progress__bar{display:block;height:100%;background:var(--primary)}
 
-/* Sections */
-section{scroll-margin-top:5rem}
-
-/* Details/summary */
+/* ===== Components ===== */
 summary{cursor:pointer;list-style:revert}
-details{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-1) var(--space-2);margin-bottom:var(--space-2);box-shadow:0 0 0 rgba(0,0,0,0)}
+details{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:var(--space-1) var(--space-2);
+  margin-bottom:var(--space-2);
+  box-shadow:0 0 0 rgba(0,0,0,0);
+  color:var(--text);
+}
 details[open]{box-shadow:var(--shadow)}
 summary h3{display:inline}
 .answer summary{font-weight:600}
 
-/* Figures & transcripts */
-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-1);margin:var(--space-2) 0}
+figure{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:var(--space-1);
+  margin:var(--space-2) 0;
+  color:var(--text);
+}
 figcaption{font-size:var(--size-0);color:#475569}
 .transcript{margin:.5rem 0}
 
-/* Forms (Quick Check + MC groups) */
 .mc{display:grid;gap:.5rem;margin:.5rem 0}
-.mc label{display:flex;gap:.5rem;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .75rem;background:#fff}
+.mc label{
+  display:flex;gap:.5rem;align-items:flex-start;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:.5rem .75rem;
+  background:var(--panel);
+  color:var(--text);
+}
 input[type="radio"]{accent-color:var(--primary)}
-button{appearance:none;border:1px solid var(--border);background:var(--primary);color:#fff;padding:.5rem .9rem;border-radius:.6rem;cursor:pointer}
+button{
+  appearance:none;border:1px solid var(--border);
+  background:var(--primary);color:#fff;
+  padding:.5rem .9rem;border-radius:.6rem;cursor:pointer
+}
 button:hover{filter:brightness(.95)}
 button:disabled{opacity:.6;cursor:not-allowed}
+
+/* Flip-card options */
+.mc label.flip{ padding:0; border:none; background:transparent }
+.mc label.flip:focus-within .card{ outline:3px solid var(--focus); outline-offset:2px }
+
+.mc .card{
+  position:relative; width:100%;
+  border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--panel); box-shadow:var(--shadow);
+  transform-style:preserve-3d; transition:transform .6s;
+  min-height:3.25rem;
+}
+.mc .card__face{
+  position:absolute; inset:0; padding:.5rem .75rem;
+  display:flex; align-items:flex-start; backface-visibility:hidden;
+}
+.mc .card__face--back{ transform:rotateY(180deg) }
+.mc label.flip.is-flipped .card{ transform:rotateY(180deg) }
+
+/* States */
+.mc label.flip[data-correct="true"] .card__face--back{ border-left:4px solid #16a34a }
+.mc label.flip[data-correct="false"] .card__face--back{ border-left:4px solid #ef4444 }
+
+/* Reduced motion: show back face without 3D spin */
+@media (prefers-reduced-motion: reduce){
+  .mc .card{ transition:none; transform:none }
+  .mc .card__face{ position:static; display:none; backface-visibility:visible }
+  .mc label.flip.is-flipped .card__face--front{ display:none }
+  .mc label.flip.is-flipped .card__face--back{ display:flex }
+}
 
 /* Footer */
 footer{padding:var(--space-2) var(--space-3);border-top:1px solid var(--muted);background:var(--surface)}
@@ -101,52 +185,58 @@ footer{padding:var(--space-2) var(--space-3);border-top:1px solid var(--muted);b
 .hr{height:1px;background:var(--muted);border:0;margin:var(--space-3) 0}
 .muted{color:#475569}
 
-/* Mobile tweaks */
-@media (max-width: 640px){
+/* ===== Mobile tweaks ===== */
+@media (max-width:640px){
   main{padding:var(--space-2)}
   h1{font-size:2rem}
   h2{font-size:1.5rem}
   h3{font-size:1.25rem}
 }
 
-/* Print basics */
+/* ===== Print ===== */
 @media print{
   a{text-decoration:none}
-  nav, .toc, .progress, button{display:none !important}
+  nav,.toc,.progress,button{display:none !important}
   details{border:none;box-shadow:none}
 }
 
-/* THEME: Midnight & Mint (AA, dark) */
+/* ===== Theme: Midnight (dark) ===== */
 html.theme-midnight{
   --bg:#0F172A;
   --surface:#111827;
   --text:#E5E7EB;
   --muted:#1F2937;
   --border:#334155;
-  --primary:#22D3EE;     /* bright cyan */
+  --primary:#22D3EE;
   --primary-ink:#0891B2;
-  --focus:#F59E0B;       /* amber focus */
+  --focus:#F59E0B;
+  --panel:#0B1220;
 }
 
-/* THEME PANEL FIX — remove hard-coded white backgrounds */
-details,
-figure,
-.mc label {
-  background: var(--surface);   /* was #fff */
-  color: var(--text);           /* ensure readable text */
-  border-color: var(--border);
+/* Bigger video options (opt-in) */
+
+/* 1) Wide (capped, with 1rem gutters) */
+.video--wide{
+  display:block;
+  width:min(90rem, 100vw - 2rem); /* cap + safe gutters */
+  max-width:none;                 /* override global max-width:100% */
+  margin: var(--space-2) 0;
+  margin-left:50%;
+  transform:translateX(-50%);     /* center to viewport */
+  border-radius:var(--radius);
 }
 
-/* Make the expanded step pop a bit */
-details[open]{
-  box-shadow: var(--shadow);
+/* 2) Full-bleed (edge-to-edge) */
+.video--bleed{
+  display:block;
+  width:100vw;
+  max-width:none;
+  margin: var(--space-2) 0;
+  margin-left:50%;
+  transform:translateX(-50%);
+  border-radius:0;
 }
 
-/* Optional: slightly lighter panel than header surface */
-:root{ --panel: color-mix(in srgb, var(--surface) 92%, #ffffff 8%); }
-details, figure, .mc label { background: var(--panel); }
-
-/* Dark theme (if using html.theme-midnight) — deepen the panel */
-html.theme-midnight{
-  --panel:#0B1220; /* darker than --surface for contrast */
-}
+/* Optional: enforce aspect ratio */
+.video-16x9{ aspect-ratio:16/9; height:auto; }
+.video-4x3 { aspect-ratio:4/3;  height:auto; }
